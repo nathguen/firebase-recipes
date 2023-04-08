@@ -1,15 +1,12 @@
-import { User } from 'firebase/auth';
-import { useEffect, useState } from 'react';
-import FirebaseAuthService from './FirebaseAuthService';
 import './App.css';
 import LoginForm from './components/LoginForm';
 
 function App() {
-  const [user, setUser] = useState<User | null>(null);
+  // const [user, setUser] = useState<User | null>(null);
 
-  useEffect(() => {
-    return FirebaseAuthService.subscribeToAuthChanges(setUser);
-  }, [])
+  // useEffect(() => {
+  //   return FirebaseAuthService.subscribeToAuthChanges(setUser);
+  // }, [])
 
   return (
     <div className="App">

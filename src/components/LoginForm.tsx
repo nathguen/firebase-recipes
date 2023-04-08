@@ -1,7 +1,7 @@
-import React, { useEffect, useState } from "react";
+import { User } from "firebase/auth";
+import { useEffect, useState } from "react";
 import isEmail from "validator/lib/isEmail";
 import FirebaseAuthService from "../FirebaseAuthService";
-import { AuthError, User } from "firebase/auth";
 
 const LoginForm = () => {
   const [user, setUser] = useState<User | null>(null);
