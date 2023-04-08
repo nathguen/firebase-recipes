@@ -1,13 +1,22 @@
-import { Button, Typography } from '@mui/material';
+import { User } from 'firebase/auth';
+import { useEffect, useState } from 'react';
+import FirebaseAuthService from './FirebaseAuthService';
 import './App.css';
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
-import firebase from './FirebaseConfig';
+import LoginForm from './components/LoginForm';
 
 function App() {
+  const [user, setUser] = useState<User | null>(null);
+
+  useEffect(() => {
+    return FirebaseAuthService.subscribeToAuthChanges(setUser);
+  }, [])
+
   return (
     <div className="App">
-      <Typography variant="h1">Firebase Recipes</Typography>
-      <Button variant="contained">Hello world</Button>
+      <div className="title-row">
+        <h1 className="title">Firebase Recipes</h1>
+        <LoginForm />
+      </div>
     </div>
   );
 }
